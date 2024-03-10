@@ -2,10 +2,17 @@
   "name": "backend",
   "version": "1.0.0",
   "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kiranpok/"
+  },
   "scripts": {
     "start": "cross-env NODE_ENV=production node server.js",
     "test": "cross-env NODE_ENV=test jest --verbose --runInBand",
-    "dev": "cross-env NODE_ENV=development nodemon server.js"
+    "dev": "cross-env NODE_ENV=development nodemon server.js",
+    "frontend-install": "npm install --prefix frontend",
+    "frontend": "npm start --prefix frontend",
+    "build": " npm run build --prefix frontend"
   },
   "keywords": [],
   "author": "",
