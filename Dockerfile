@@ -1,12 +1,26 @@
+# Use a specific version of the Node.js image
 FROM node
 
-# Copy Workdir contents
-ADD Fitness-First-Pro /Fitness-First-Pro/
-WORKDIR /Fitness-First-Pro/
+# Set the working directory
+WORKDIR /
 
-# Create a build
+# Copy package.json and package-lock.json for backend
+COPY package*.json ./
+
+# Install backend dependencies
 RUN npm install
-RUN npm frontend-install
 
-# Runtime App
-CMD npm run dev
+# Copy frontend directory for installing frontend dependencies
+COPY frontend ./frontend/
+
+# Install frontend dependencies
+RUN npm install --prefix frontend
+
+# Copy the rest of the source code
+COPY . .
+
+# Expose port (if necessary)
+EXPOSE 3000
+
+# Command to start the application
+CMD ["npm", "run", "dev"]
