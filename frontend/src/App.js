@@ -58,6 +58,10 @@ function App() {
                   <Home isSignedIn={isSignedIn} activities={activities} />
                 }
               />
+              <Route
+                path="/activities"
+                element={<ActivityForm onSave={handleSaveActivity} />}
+              />
               <Route path="/activityList" element={<ActivityList />} />
               <Route path="/activityStats" element={<ActivityStats />} />
               <Route path="/activityForm" element={<ActivityForm />} />

@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useAuth } from "../hooks/AuthContext";
+//import { useAuth } from "../hooks/AuthContext";
 import { getUserProfile } from "../services/authService";
 import UserProfileEditForm from "./UserProfileEditForm"; // Import the UserProfileEditForm component
 
 const UserProfile = () => {
-  const { user } = useAuth();
+  //const { user } = useAuth();
   const [userProfile, setUserProfile] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);

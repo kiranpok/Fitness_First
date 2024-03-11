@@ -46,6 +46,7 @@ const ForgetPassword = () => {
       <button type="submit" className="reset-button">
         Reset Password
       </button>
+      {resetStatus && <p>{resetStatus}</p>}
     </form>
   );
 };
