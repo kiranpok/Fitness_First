@@ -7,7 +7,8 @@ WORKDIR /Fitness_First/
 
 # Create a Build
 RUN npm install
-RUN npm run start
+RUN npm run frontend-install
 
 # Runtime App
 CMD npm run dev
+CMD npm start
