@@ -1,20 +1,16 @@
-# Use a specific version of the Node.js image
 FROM node
 
 # Set the working directory
-WORKDIR /
+WORKDIR /app
 
-# Copy package.json and package-lock.json for backend
+# Copy the package.json and package-lock.json files
 COPY package*.json ./
+
+# Delete existing node_modules and package-lock.json
+RUN rm -rf node_modules package-lock.json
 
 # Install backend dependencies
 RUN npm install
-
-# Copy frontend directory for installing frontend dependencies
-COPY frontend ./frontend/
-
-# Install frontend dependencies
-RUN npm install --prefix frontend
 
 # Copy the rest of the source code
 COPY . .
@@ -22,5 +18,5 @@ COPY . .
 # Expose port (if necessary)
 EXPOSE 3000
 
-# Command to start the application
-CMD ["npm", "run", "dev"]
+# Runtime command
+CMD ["npm", "start"]
