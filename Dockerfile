@@ -1,22 +1,13 @@
+# Base Image - ubuntu latest
 FROM node
 
-# Set the working directory
-WORKDIR /app
+# Copy Workdir contents
+ADD Fitness_First /Fitness_First/
+WORKDIR /Fitness_First/
 
-# Copy the package.json and package-lock.json files
-COPY package*.json ./
-
-# Delete existing node_modules and package-lock.json
-RUN rm -rf node_modules package-lock.json
-
-# Install backend dependencies
+# Create a Build
 RUN npm install
+RUN npm run start
 
-# Copy the rest of the source code
-COPY . .
-
-# Expose port (if necessary)
-EXPOSE 3000
-
-# Runtime command
-CMD ["npm","run", "dev"]
+# Runtime App
+CMD npm run dev
