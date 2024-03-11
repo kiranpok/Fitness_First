@@ -19,4 +19,4 @@ COPY . .
 EXPOSE 3000
 
 # Runtime command
-CMD ["npm","run", "build"]
+CMD ["npm","run", "dev"]
