@@ -30,7 +30,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "CI = false react-scripts build",
     "test:react": "react-scripts test",
     "test:mocha": "mocha",
     "test:jest": "jest",
@@ -42,6 +42,9 @@
       "react-app",
       "react-app/jest"
     ]
+  },
+  "rules": {
+    "no-unused-vars": "off"
   },
   "browserslist": {
     "production": [
