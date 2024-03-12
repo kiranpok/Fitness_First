@@ -3,12 +3,17 @@ FROM node:21.6.1
 RUN npm install -g nodemon
 
 # Create app directory
-WORKDIR /app/backend
+WORKDIR /app
 
-COPY backend .
+COPY backend ./backend
+COPY frontend ./frontend
 
-RUN npm install
+RUN cd backend && npm install
+RUN cd frontend && npm install
 
-EXPOSE 5000
+EXPOSE 3001 6000
 
-CMD ["node","server.js"]
+# Start both backend and frontend servers
+CMD ["npm", "run", "dev", "&", "npm", "start"]
+
+
