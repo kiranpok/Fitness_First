@@ -1,3 +1,5 @@
+FROM node:21.6.1
+
 # Install nodemon globally for backend development
 RUN npm install -g nodemon
 
