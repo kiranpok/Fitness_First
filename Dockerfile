@@ -5,8 +5,8 @@ RUN npm install -g nodemon
 # Create app directory
 WORKDIR /app
 
-COPY backend .
-COPY frontend .
+COPY backend ./backend
+COPY frontend ./frontend
 
 RUN cd backend && npm install
 RUN cd frontend && npm install
