@@ -1,19 +1,26 @@
-FROM node:21.6.1
-
+# Install nodemon globally for backend development
 RUN npm install -g nodemon
 
-# Create app directory
-WORKDIR /app
+# Set working directory for backend
+WORKDIR /app/backend
 
-COPY backend ./backend
-COPY frontend ./frontend
+# Copy backend files
+COPY backend .
 
-RUN cd backend && npm install
-RUN cd frontend && npm install
+# Install backend dependencies
+RUN npm install
 
-EXPOSE 3001 6000
+# Set working directory for frontend
+WORKDIR /app/frontend
+
+# Copy frontend files
+COPY frontend .
+
+# Install frontend dependencies
+RUN npm install
+
+# Expose ports for both backend and frontend
+EXPOSE 3001 3000
 
 # Start both backend and frontend servers
 CMD ["npm", "run", "dev", "&", "npm", "start"]
-
-
