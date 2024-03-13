@@ -25,4 +25,4 @@ RUN npm install
 EXPOSE 3001 3000
 
 # Start both backend and frontend servers
-CMD ["npm", "run", "dev", "&", "npm", "start"]
+CMD ["npm", "start"]
